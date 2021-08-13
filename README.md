@@ -5,6 +5,25 @@ This is the official repo for CVPR21 paper StableNet and the arxiv version can b
 ## Introduction
 Approaches based on deep neural networks have achieved striking performance when testing data and training data share similar distribution, but can significantly fail otherwise. Therefore, eliminating the impact of distribution shifts between training and testing data is crucial for building performance-promising deep models. Conventional methods assume either the known heterogeneity of training data (e.g. domain labels) or the approximately equal capacities of different domains. In this paper, we consider a more challenging case where neither of the above assumptions holds. We propose to address this problem by removing the dependencies between features via learning weights for training samples, which helps deep models get rid of spurious correlations and, in turn, concentrate more on the true connection between discriminative features and labels. Extensive experiments clearly demonstrate the effectiveness of our method on multiple distribution generalization benchmarks compared with state-of-the-art counterparts. Through extensive experiments on distribution generalization benchmarks including PACS, VLCS, MNIST-M, and NICO, we show the effectiveness of our method compared with state-of-the-art counterparts.
 
+## Installation
+### Requirements
+Linux with Python >= 3.6  
+[PyTorch](https://pytorch.org/) >= 1.1.0  
+torchvision >= 0.3.0  
+tensorboard >= 1.14.0  
+
+## Quick Start
+### Train StableNet
+```bash
+python main_stablenet.py --gpu 0
+```
+You can see more options from
+```bash
+python main_stablenet.py -h
+```
+Result files will be saved in `results/`.
+
+
 ## Performance and trained models
 
 
@@ -22,3 +41,15 @@ Approaches based on deep neural networks have achieved striking performance when
 | flexible(5:1:1) | VLCS | - | - | ResNet18 | [split file](https://drive.google.com/file/d/1PnOOG8cYwKqdlSp33P4BvFIcmyWLGQvI/view?usp=sharing) | 81.157 | [model file](https://drive.google.com/file/d/1df7o-T98v7grNY4roT5E7KI4bQvhqRef/view?usp=sharing) |
 
 
+
+## Citing StableNet
+If you find this repo useful for your research, please consider citing the paper.
+```
+@inproceedings{zhang2021deep,
+  title={Deep Stable Learning for Out-Of-Distribution Generalization},
+  author={Zhang, Xingxuan and Cui, Peng and Xu, Renzhe and Zhou, Linjun and He, Yue and Shen, Zheyan},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={5372--5382},
+  year={2021}
+}
+```

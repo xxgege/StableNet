@@ -1,7 +1,8 @@
+import loss_reweighting as loss_expect
 import torch
 import torch.nn as nn
 from torch.autograd import Variable
-import loss_reweighting as loss_expect
+
 from training.schedule import lr_setter
 
 

@@ -1,15 +1,13 @@
 import time
-import torch
 
+import torch
+import torch.multiprocessing as mp
 import torch.nn.parallel
 import torch.optim
-import torch.multiprocessing as mp
 import torch.utils.data
 import torch.utils.data.distributed
-
-from utilis.meters import AverageMeter
-from utilis.meters import ProgressMeter
 from utilis.matrix import accuracy
+from utilis.meters import AverageMeter, ProgressMeter
 
 
 def validate(val_loader, model, criterion, epoch=0, test=True, args=None, tensor_writer=None):

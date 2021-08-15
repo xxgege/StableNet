@@ -2,19 +2,19 @@ import os
 import random
 import shutil
 import time
+
 import torch
+import torch.multiprocessing as mp
 import torch.nn as nn
 import torch.nn.parallel
 import torch.optim
-import torch.multiprocessing as mp
 import torch.utils.data
 import torch.utils.data.distributed
 from torch.autograd import Variable
-from training.reweighting import weight_learner
-
-from utilis.meters import AverageMeter
-from utilis.meters import ProgressMeter
 from utilis.matrix import accuracy
+from utilis.meters import AverageMeter, ProgressMeter
+
+from training.reweighting import weight_learner
 
 
 def train(train_loader, model, criterion, optimizer, epoch, args, tensor_writer=None):

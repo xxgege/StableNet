@@ -1,31 +1,30 @@
+import math
 import os
 import random
 import shutil
 import time
 import warnings
-import math
 
 import torch
-import torch.nn as nn
-import torch.nn.parallel
 import torch.backends.cudnn as cudnn
 import torch.distributed as dist
-import torch.optim
 import torch.multiprocessing as mp
+import torch.nn as nn
+import torch.nn.parallel
+import torch.optim
 import torch.utils.data
 import torch.utils.data.distributed
-import torchvision.transforms as transforms
 import torchvision.datasets as datasets
-
+import torchvision.transforms as transforms
 from torch.utils.tensorboard import SummaryWriter
 
 import models
 from ops.config import parser
+from training.schedule import lr_setter
 from training.train import train
+from training.validate import validate
 from utilis.meters import AverageMeter
 from utilis.saving import save_checkpoint
-from training.schedule import lr_setter
-from training.validate import validate
 
 best_acc1 = 0
 

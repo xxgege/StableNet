@@ -1,4 +1,5 @@
 import argparse
+
 import models
 
 model_names = sorted(name for name in models.__dict__
